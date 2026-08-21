@@ -19,7 +19,6 @@
   },
   "type": "module",
   "dependencies": {
-    "biome": "^0.3.3",
     "vitest": "^4.1.10"
   },
   "devDependencies": {
