@@ -7,14 +7,13 @@
 // Output: false
 // // 'l' appears twice
 export default function isUnique(text: string): boolean {
-
-    for (let i = 0; i < text.length; i++) {
-        for(let j = i + 1; j < text.length; j++) {
-            if(text[i] === text[j]) {
-                return false
-            }
-        }
+  for (let i = 0; i < text.length; i++) {
+    for (let j = i + 1; j < text.length; j++) {
+      if (text[i] === text[j]) {
+        return false;
+      }
     }
+  }
 
-    return true
+  return true;
 }

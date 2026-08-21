@@ -30,24 +30,29 @@ the original string. You can assume the string has only uppercase and lowercase 
  *             é menor que o original (10 caracteres), portanto retorna comprimida.
  */
 
-
-export default function stringCompressor(text: string) : string {
-    let newString: string = ''
-    let counter: number = 1; 
-    for (let i = 0; i < text.length; i++) {
-        if (text[i+1] === text[i]) {
-            counter++
-        }
-        if (text[i] !== text[i+1]) {
-            newString += `${text[i]}${counter}`
-            counter = 1;
-        }
+export default function stringCompressor(text: string): string {
+  let newString: string = "";
+  let counter: number = 1;
+  for (let i = 0; i < text.length; i++) {
+    if (text[i + 1] === text[i]) {
+      counter++;
     }
+    if (text[i] !== text[i + 1]) {
+      newString += `${text[i]}${counter}`;
+      counter = 1;
+    }
+  }
 
-    const optimalString = minimalStringValidator({text, compressedString: newString})
-    return optimalString;
+  const optimalString = minimalStringValidator({ text, compressedString: newString });
+  return optimalString;
 }
 
-function minimalStringValidator({ text, compressedString }: { text: string; compressedString: string }): string {
-    return compressedString.length < text.length ? compressedString : text
+function minimalStringValidator({
+  text,
+  compressedString,
+}: {
+  text: string;
+  compressedString: string;
+}): string {
+  return compressedString.length < text.length ? compressedString : text;
 }

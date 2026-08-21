@@ -28,29 +28,29 @@
  */
 
 export default function isPermutation(s1: string, s2: string): boolean {
-    if (s1.length !== s2.length) {
-        return false
-    }
+  if (s1.length !== s2.length) {
+    return false;
+  }
 
-    const hashTableS1 = new Map();
-    const hashTableS2 = new Map();
+  const hashTableS1 = new Map();
+  const hashTableS2 = new Map();
 
-    for (const letter of s1) {
-        hashTableS1.set(letter, (hashTableS1.get(letter) | 0) + 1)
-    }
+  for (const letter of s1) {
+    hashTableS1.set(letter, (hashTableS1.get(letter) | 0) + 1);
+  }
 
-    for (const letter of s2) {
-        hashTableS2.set(letter, (hashTableS2.get(letter) | 0) + 1)
-    }
-    
-    for (const key of hashTableS1.keys()) {
-        console.log(hashTableS1.get(key));
-        if (hashTableS1.get(key) !== hashTableS2.get(key)) {
-            return false
-        }
-    }
+  for (const letter of s2) {
+    hashTableS2.set(letter, (hashTableS2.get(letter) | 0) + 1);
+  }
 
-    return true
+  for (const key of hashTableS1.keys()) {
+    console.log(hashTableS1.get(key));
+    if (hashTableS1.get(key) !== hashTableS2.get(key)) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
-console.log(isPermutation('aab', 'ada'));
+console.log(isPermutation("aab", "ada"));

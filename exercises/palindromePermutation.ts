@@ -93,7 +93,7 @@
 
 function isPermutationOfPalindrome(str: string): boolean {
   // Tratamento na string
-  str = str.replaceAll(' ', '').toLowerCase();
+  str = str.replaceAll(" ", "").toLowerCase();
 
   // Escrever uma estrutura de hashTable para contar a ocorrencia dos caracteres
   const hashTable = new Map();
@@ -103,19 +103,17 @@ function isPermutationOfPalindrome(str: string): boolean {
   }
 
   // Percorrer a hashTable e verificar a ocorrencia de pares no palíndromo e se existe mais de uma ocorrencia Impar
-  let evenCounting: number = 0;
-  console.log(hashTable)
+  let oddCounting: number = 0;
   for (const [key, value] of hashTable) {
-    console.log(key)
+    console.log(key);
     if (value % 2 !== 0) {
-      evenCounting = evenCounting + 1
+      oddCounting = oddCounting + 1;
     }
   }
 
   // Condicao; Se houver mais de um caracter ímpar, não pode ser palíndromo
-  const IsInvalidPalindrome: boolean = evenCounting <= 1;
-  // Implementation goes here
-  return IsInvalidPalindrome
+  const isValidPalindrome: boolean = oddCounting <= 1;
+  return isValidPalindrome;
 }
 
 export { isPermutationOfPalindrome };
